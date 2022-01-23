@@ -128,8 +128,6 @@ public class Login extends JFrame implements ActionListener{
             e.printStackTrace();
         }
     }
-     public static void main(String[] args){
-        new Login().setVisible(true);
-    }
+    
     
 }
