@@ -29,17 +29,6 @@ public class Transactions extends JFrame implements ActionListener{
         l2.setBounds(0, 0, 960, 1080);
         add(l2);
         
-        setFont(new Font ("System", Font. BOLD, 22));
-        Font f = getFont();
-        FontMetrics fm = getFontMetrics(f);
-        int x = fm.stringWidth("NEW ACCOUNT APPLICATION FORM - PAGE 3");
-        int y = fm.stringWidth(" ");
-        int z = getWidth()/2 - (x/2);
-        int w = z/y;
-        String pad ="";
-        //for (int i=0; i!=w; i++) pad +=" ";
-        pad = String.format ("%"+w+"s", pad) ;
-        setTitle(pad+"NEW ACCOUNT APPLICATION FORM - PAGE 3");
         
         
          l1 = new JLabel("Please Select Your Transaction");
