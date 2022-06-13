@@ -1,24 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package atm.simulator.system;
-
-/**
- * this file is called by the login file
- * this file is called when a new account is to be created
- * @author mikan    
- */
-
+package ASimulatorSystem;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.sql.*;
-//import javax.swing.;
+import com.toedter.calendar.JDateChooser;
 import java.util.*;
-
-
 
 public class Signup extends JFrame implements ActionListener{
     
@@ -26,29 +13,23 @@ public class Signup extends JFrame implements ActionListener{
     JTextField t1,t2,t3,t4,t5,t6,t7;
     JRadioButton r1,r2,r3,r4,r5;
     JButton b;
-    JComboBox c1,c2,c3;
+    JDateChooser dateChooser;
     
     
     Random ran = new Random();
     long first4 = (ran.nextLong() % 9000L) + 1000L;
     String first = "" + Math.abs(first4);
-
-    Signup() {
-         
-        //Move the text to the center
-        setFont(new Font ("System", Font . BOLD, 22));
-        Font f = getFont();
-        FontMetrics fm = getFontMetrics(f);
-        int x = fm. stringWidth ("NEW ACCOUNT APPLICATION FORM");
-        int y = fm. stringWidth (" ");
-        int z = getWidth() - x;
-        int w = z/y;
-        String pad ="";
-        //for (int i=0; i!=w; i++); pad+=" ");
-        pad = String. format (":"+w+"'s", pad) ;
-        setTitle (pad+"NEW ACCOUNT APPLICATION FORM");
+    
+    Signup(){
         
+        setTitle("NEW ACCOUNT APPLICATION FORM");
         
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("ASimulatorSystem/icons/logo.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel l11 = new JLabel(i3);
+        l11.setBounds(20, 0, 100, 100);
+        add(l11);
         
         l1 = new JLabel("APPLICATION FORM NO. "+first);
         l1.setFont(new Font("Raleway", Font.BOLD, 38));
@@ -153,19 +134,11 @@ public class Signup extends JFrame implements ActionListener{
         groupstatus.add(r4);
         groupstatus.add(r5);
         
-        
-        String date[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
-        c1 = new JComboBox(date);
-        c1.setBackground(Color.WHITE);
-        
-        String month[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "october", "November", "December"};
-        c2 = new JComboBox(month);
-        c2.setBackground(Color.WHITE);
-        
-        String year[] = {"1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002"};
-        c3 = new JComboBox(year);
-        c3.setBackground(Color.WHITE);
-
+        dateChooser = new JDateChooser();
+	//dateChooser.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+	dateChooser.setForeground(new Color(105, 105, 105));
+	dateChooser.setBounds(137, 337, 200, 29);
+	add(dateChooser);
         
         setLayout(null);
         l1.setBounds(140,20,600,40);
@@ -189,23 +162,7 @@ public class Signup extends JFrame implements ActionListener{
         l5.setBounds(100,240,200,30);
         add(l5);
         
-        l13.setBounds(300,240,40,30);
-        add(l13);
-        
-        c1.setBounds(340,240,60,30);
-        add(c1);
-          
-        l14.setBounds(410,240,50,30);
-        add(l14);
-
-        c2.setBounds(460,240,100,30);
-        add(c2);
-        
-        l15.setBounds(570, 240, 40, 30);
-        add(l15);
-        
-        c3.setBounds(610, 240, 90, 30);
-        add(c3);
+        dateChooser.setBounds(300, 240, 400, 30);
         
         l6.setBounds(100,290,200,30);
         add(l6);
@@ -270,7 +227,6 @@ public class Signup extends JFrame implements ActionListener{
         setSize(850,800);
         setLocation(500,120);
         setVisible(true);
-
     }
     
     public void actionPerformed(ActionEvent ae){
@@ -278,10 +234,7 @@ public class Signup extends JFrame implements ActionListener{
         String formno = first;
         String name = t1.getText();
         String fname = t2.getText();
-        String date = (String)c1.getSelectedItem();
-        String month = (String)c2.getSelectedItem();
-        String year = (String)c3.getSelectedItem();
-        
+        String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
         String gender = null;
         if(r1.isSelected()){ 
             gender = "Male";
@@ -324,11 +277,8 @@ public class Signup extends JFrame implements ActionListener{
         
     }
     
+    
     public static void main(String[] args){
         new Signup().setVisible(true);
     }
-    
 }
-
-
-

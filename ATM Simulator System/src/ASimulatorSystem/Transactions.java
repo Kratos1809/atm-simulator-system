@@ -1,47 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package atm.simulator.system;
+package ASimulatorSystem;
 
-/**
- *
- * @author mikan
- */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.sql.*;
 
 public class Transactions extends JFrame implements ActionListener{
-    
-     JLabel l1;
+
+    JLabel l1;
     JButton b1,b2,b3,b4,b5,b6,b7;
     String pin;
-
-    public Transactions(String pin) {
+    Transactions(String pin){
         this.pin = pin;
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("atm/simulator/system/icons/atm.jpg"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("ASimulatorSystem/icons/atm.jpg"));
         Image i2 = i1.getImage().getScaledInstance(1000, 1180, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l2 = new JLabel(i3);
         l2.setBounds(0, 0, 960, 1080);
         add(l2);
         
-        setFont(new Font ("System", Font. BOLD, 22));
-        Font f = getFont();
-        FontMetrics fm = getFontMetrics(f);
-        int x = fm.stringWidth("NEW ACCOUNT APPLICATION FORM - PAGE 3");
-        int y = fm.stringWidth(" ");
-        int z = getWidth()/2 - (x/2);
-        int w = z/y;
-        String pad ="";
-        //for (int i=0; i!=w; i++) pad +=" ";
-        pad = String.format ("%"+w+"s", pad) ;
-        setTitle(pad+"NEW ACCOUNT APPLICATION FORM - PAGE 3");
-        
-        
-         l1 = new JLabel("Please Select Your Transaction");
+        l1 = new JLabel("Please Select Your Transaction");
         l1.setForeground(Color.WHITE);
         l1.setFont(new Font("System", Font.BOLD, 16));
         
@@ -94,6 +72,9 @@ public class Transactions extends JFrame implements ActionListener{
         setLocation(500,0);
         setUndecorated(true);
         setVisible(true);
+        
+        
+        
     }
     
     public void actionPerformed(ActionEvent ae){
@@ -119,10 +100,7 @@ public class Transactions extends JFrame implements ActionListener{
         }
     }
     
-     public static void main(String[] args){
+    public static void main(String[] args){
         new Transactions("").setVisible(true);
     }
-    
 }
-
-

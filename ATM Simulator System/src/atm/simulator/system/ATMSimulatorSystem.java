@@ -6,7 +6,7 @@ package atm.simulator.system;
 
 /**
  *
- * @author rajiu
+ * @author mikan
  */
 public class ATMSimulatorSystem {
 

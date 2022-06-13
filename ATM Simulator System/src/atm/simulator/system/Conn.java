@@ -4,25 +4,24 @@
  */
 package atm.simulator.system;
 
-import java.sql.*;
-
 /**
  *
- * @author rajiul
- * this class uses sql package for java allowing us to
+ * @author mikan
+ * this class uses SQL package for java allowing us to
  * select , insert, delete , update data in SQL tables
  */
 
+import java.sql.*;
 public class Conn {
     Connection c;
     Statement s;
     public Conn(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            c = DriverManager.getConnection("jdbc:mysql:///project1","root","");
-            s = c.createStatement();
+            Class.forName("com.mysql.jdbc.Driver"); //registering the class and loadiing in the memory 
+            c = DriverManager.getConnection("jdbc:mysql:///project1","root","");    // setting up the connection with the database 
+            s = c.createStatement();     //to access to our database.
         }
-        catch(Exception e){
+        catch(Exception e ){
             System.out.println(e);
         }
     }

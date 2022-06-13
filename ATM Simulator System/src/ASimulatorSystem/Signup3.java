@@ -1,43 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package atm.simulator.system;
 
-/**
- *
- * @author mikan
- */
+package ASimulatorSystem;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.sql.*;
 import java.util.*;
 
-
 public class Signup3 extends JFrame implements ActionListener{
+    
     JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12;
     JRadioButton r1,r2,r3,r4;
     JButton b1,b2;
     JCheckBox c1,c2,c3,c4,c5,c6,c7;
     String formno;
-
-    public Signup3(String formno) {
+    Signup3(String formno){
         this.formno = formno;
+        setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 3");
+    
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("ASimulatorSystem/icons/logo.jpg"));
+        Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
+        ImageIcon i3 = new ImageIcon(i2);
+        JLabel l14 = new JLabel(i3);
+        l14.setBounds(150, 0, 100, 100);
+        add(l14);
         
-        setFont(new Font ("System", Font. BOLD, 22));
-        Font f = getFont();
-        FontMetrics fm = getFontMetrics(f);
-        int x = fm.stringWidth("NEW ACCOUNT APPLICATION FORM - PAGE 3");
-        int y = fm.stringWidth(" ");
-        int z = getWidth()/2 - (x/2);
-        int w = z/y;
-        String pad ="";
-        //for (int i=0; i!=w; i++) pad +=" ";
-        pad = String.format ("%"+w+"s", pad) ;
-        setTitle(pad+"NEW ACCOUNT APPLICATION FORM - PAGE 3");
-        
-         l1 = new JLabel("Page 3: Account Details");
+        l1 = new JLabel("Page 3: Account Details");
         l1.setFont(new Font("Raleway", Font.BOLD, 22));
         
         l2 = new JLabel("Account Type:");
@@ -221,9 +209,10 @@ public class Signup3 extends JFrame implements ActionListener{
         
         b1.addActionListener(this);
         b2.addActionListener(this);
+        
     }
     
-     public void actionPerformed(ActionEvent ae){
+    public void actionPerformed(ActionEvent ae){
         String atype = null;
         if(r1.isSelected()){ 
             atype = "Saving Account";
@@ -291,7 +280,7 @@ public class Signup3 extends JFrame implements ActionListener{
         
     }
     
-      public static void main(String[] args){
+    public static void main(String[] args){
         new Signup3("").setVisible(true);
     }
     
